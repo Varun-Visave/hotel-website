@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
 import menuData from '../data/alldata'
 import { useLang } from '../contexts/LanguageContext'
 
@@ -7,6 +7,45 @@ export default function MenuSlider(){
   const sections = useMemo(()=> Object.keys(menuData),[])
   const { t } = useLang()
   const [index, setIndex] = useState(0)
+  // Touch handling refs for swipe support on mobile
+  const touchStartX = useRef(0)
+  const touchStartY = useRef(0)
+  const touchMoved = useRef(false)
+
+  function handleTouchStart(e){
+    const t0 = e.touches[0]
+    touchStartX.current = t0.clientX
+    touchStartY.current = t0.clientY
+    touchMoved.current = false
+  }
+
+  function handleTouchMove(e){
+    // mark as moved if horizontal movement detected
+    const t0 = e.touches[0]
+    const dx = Math.abs(t0.clientX - touchStartX.current)
+    const dy = Math.abs(t0.clientY - touchStartY.current)
+    if(dx > 10 && dx > dy) touchMoved.current = true
+  }
+
+  function handleTouchEnd(e){
+    if(!touchMoved.current) return
+    // On touchend, use changedTouches if available (some browsers)
+    const t = e.changedTouches && e.changedTouches[0] ? e.changedTouches[0] : (e.touches && e.touches[0])
+    if(!t) return
+    const dx = t.clientX - touchStartX.current
+    const dy = t.clientY - touchStartY.current
+    // require mostly horizontal swipe and reasonable distance
+    const absDx = Math.abs(dx)
+    if(absDx > 50 && absDx > Math.abs(dy)){
+      if(dx < 0) {
+        // swipe left -> next
+        next()
+      } else {
+        // swipe right -> prev
+        prev()
+      }
+    }
+  }
 
   function prev(){ setIndex(i => (i - 1 + sections.length) % sections.length) }
   function next(){ setIndex(i => (i + 1) % sections.length) }
@@ -21,7 +60,11 @@ export default function MenuSlider(){
         </div>
       </div>
 
-      <div className="slides-wrapper">
+      <div className="slides-wrapper"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="slides" style={{transform:`translateX(-${index * 100}%)`}}>
           {sections.map((key, i) => (
             <section key={key} className="slide" aria-hidden={i!==index} aria-roledescription="slide">

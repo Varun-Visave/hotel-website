@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import MenuSlider from "./MenuSlider";
 import diningImage from "../assets/dining.png"
 import { useLang } from '../contexts/LanguageContext'
@@ -6,6 +6,53 @@ import { useLang } from '../contexts/LanguageContext'
 export default function Body() {
   const [showTop, setShowTop] = useState(false);
   const { t } = useLang()
+  const mapRef = useRef(null)
+  const mapBase = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d977.0774112537462!2d73.7656911!3d18.6491939!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9004d1ad7e5%3A0xf3bbf4a3f07fc358!2sMorya%20Food%20Point!5e1!3m2!1sen!2sin!4v1764965939925!5m2!1sen!2sin"
+  const [mapSrc, setMapSrc] = useState(mapBase)
+
+  useEffect(()=>{
+    // Retry logic: if iframe doesn't fire 'load' (maps failing to load), reload iframe
+    let attempts = 0
+    const maxAttempts = 5
+    const delays = [3000, 6000, 12000, 24000, 48000] // ms
+    let retryTimer = null
+
+    function clearRetry(){ if(retryTimer){ clearTimeout(retryTimer); retryTimer = null } }
+
+    function onLoad(){
+      // loaded successfully - stop retries
+      clearRetry()
+      attempts = maxAttempts
+    }
+
+    function scheduleRetry(){
+      if(attempts >= maxAttempts) return
+      const delay = delays[Math.min(attempts, delays.length-1)]
+      retryTimer = setTimeout(()=>{
+        // add cache-busting query so browser attempts a fresh fetch
+        attempts += 1
+        setMapSrc(`${mapBase}&_reload=${Date.now()}&attempt=${attempts}`)
+        scheduleRetry()
+      }, delay)
+    }
+
+    const iframe = mapRef.current
+    iframe && iframe.addEventListener('load', onLoad)
+
+    // initial check: if not loaded within 5s, start retrying
+    retryTimer = setTimeout(()=>{
+      if(attempts === 0){
+        attempts = 1
+        setMapSrc(`${mapBase}&_reload=${Date.now()}&attempt=${attempts}`)
+        scheduleRetry()
+      }
+    }, 5000)
+
+    return ()=>{
+      clearRetry()
+      iframe && iframe.removeEventListener('load', onLoad)
+    }
+  }, [mapBase])
 
   useEffect(() => {
     // smooth scroll for internal links

@@ -1,9 +1,11 @@
 import { useState, useMemo } from 'react'
 import menuData from '../data/alldata'
+import { useLang } from '../contexts/LanguageContext'
 
 export default function MenuSlider(){
   // sections from data object
   const sections = useMemo(()=> Object.keys(menuData),[])
+  const { t } = useLang()
   const [index, setIndex] = useState(0)
 
   function prev(){ setIndex(i => (i - 1 + sections.length) % sections.length) }
@@ -12,10 +14,10 @@ export default function MenuSlider(){
   return (
     <div className="menu-slider" aria-roledescription="carousel">
       <div className="menu-header">
-        <h3 className="category-title">{sections[index].replace(/([A-Z])/g,' $1').trim()}</h3>
+        <h3 className="category-title">{t(`menu.sections.${sections[index]}`) || sections[index].replace(/([A-Z])/g,' $1').trim()}</h3>
         <div className="controls">
-          <button className="icon-btn" onClick={prev} aria-label="Previous section">‹</button>
-          <button className="icon-btn" onClick={next} aria-label="Next section">›</button>
+          <button className="icon-btn" onClick={prev} aria-label={t('menu.prev')}>‹</button>
+          <button className="icon-btn" onClick={next} aria-label={t('menu.next')}>›</button>
         </div>
       </div>
 
@@ -37,9 +39,9 @@ export default function MenuSlider(){
         </div>
       </div>
 
-      <div className="dots" role="tablist" aria-label="Menu sections">
+      <div className="dots" role="tablist" aria-label={t('menu.title')}>
         {sections.map((s, i) => (
-          <button key={s} className={`dot ${i===index? 'active':''}`} onClick={()=>setIndex(i)} aria-label={`Show ${s}`}></button>
+          <button key={s} className={`dot ${i===index? 'active':''}`} onClick={()=>setIndex(i)} aria-label={`${t('menu.show')} ${t(`menu.sections.${s}`) || s}`}></button>
         ))}
       </div>
     </div>

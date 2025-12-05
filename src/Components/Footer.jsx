@@ -1,32 +1,32 @@
+import { useLang } from '../contexts/LanguageContext'
+
 export default function Footer() {
+  const { t } = useLang()
   return (
     <footer id="contact" className="site-footer">
       <div className="container footer-grid">
         <div className="footer-col">
-          <h3>Morya Food Point</h3>
+          <h3>{t('site.title')}</h3>
           <p>Comfort, tasty food, and friendly care.</p>
         </div>
 
         <div className="footer-col">
-          <h4>Contact</h4>
+          <h4>{t('footer.contact')}</h4>
           <p>
-            📞Phone:{" "}
-            <a href="tel:+918149282506" style={{ color: "burlywood" }}>
+            📞Phone:{' '}
+            <a href="tel:+918149282506" style={{ color: 'burlywood' }}>
               +91 8149282506
-            </a>{" "}
-            ,{" "}
-            <a href="tel:+919370223442" style={{ color: "burlywood" }}>
+            </a>{' '}
+            ,{' '}
+            <a href="tel:+919370223442" style={{ color: 'burlywood' }}>
               +91 9370223442
-            </a>{" "}
+            </a>{' '}
           </p>
           <p>
-            ✉️Email:{" "}
-            <a
-              href="mailto:moryafoodpoint@gmail.com"
-              style={{ color: "burlywood" }}
-            hat>
+            ✉️Email:{' '}
+            <a href="mailto:moryafoodpoint@gmail.com" style={{ color: 'burlywood' }}>
               moryafoodpoint@gmail.com
-            </a>{" "}
+            </a>{' '}
           </p>
           <p>
             📍Address: ABC Junction, Akurdi Railway Station, Akurdi, Pune -
@@ -35,27 +35,24 @@ export default function Footer() {
         </div>
 
         <div className="footer-col">
-          <h4>Quick Links</h4>
+          <h4>{t('footer.quickLinks')}</h4>
           <ul className="footer-links">
             <li>
-              <a href="#home">Home</a>
+              <a href="#home">{t('footer.home')}</a>
             </li>
             <li>
-              <a href="#menu">Menu</a>
+              <a href="#menu">{t('footer.menu')}</a>
             </li>
             <li>
-              <a href="#location">Location</a>
+              <a href="#location">{t('footer.location')}</a>
             </li>
           </ul>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>
-          © 2025 Morya Food Point. All rights reserved. • Made with love in
-          India
-        </p>
+        <p>{t('footer.copyright')}</p>
       </div>
     </footer>
-  );
+  )
 }

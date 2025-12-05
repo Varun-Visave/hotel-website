@@ -29,6 +29,12 @@ export default function Footer() {
             </a>{' '}
           </p>
           <p>
+            📷Instagram:{' '}
+            <a href="https://instagram.com/morya_food_point_" target="_blank" rel="noopener noreferrer" style={{ color: 'burlywood' }}>
+              @morya_food_point_
+            </a>
+          </p>
+          <p>
             📍Address: ABC Junction, Akurdi Railway Station, Akurdi, Pune -
             411035
           </p>

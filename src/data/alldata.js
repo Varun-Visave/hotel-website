@@ -1,0 +1,90 @@
+const menu = {
+  SnackAndBreakfast: [
+    { item: "Poha", price: 20 },
+    { item: "Upma", price: 20 },
+    { item: "Green salad", price: 25 },
+    { item: "Sabudana khichdi", price: 25 },
+    { item: "Sabudana vada", price: 35 },
+    { item: "Maggi", price: 35 },
+    { item: "Suji sheera", price: 25 },
+    { item: "Plain omlette", price: 30 },
+    { item: "Masala omlette", price: 35 },
+    { item: "Boiled egg", price: 30 },
+    { item: "Bread omlette", price: 40 },
+    { item: "Veg sandwich", price: 25 },
+    { item: "Grilled veg sandwich", price: 25 },
+    { item: "Pakoda", price: 30 },
+    { item: "Fried papad", price: 20 },
+    { item: "Masala papad", price: 35 },
+    { item: "Roasted papad", price: 15 },
+  ],
+
+  Thali: [
+    { item: "Rice plate", price: 80 },
+    { item: "Veg thali", price: 100 },
+    { item: "Non-veg thali", price: 160 },
+    { item: "Bhaji-chapati", price: 50 },
+    { item: "Dal rice", price: 45 },
+    { item: "Egg thali", price: 140 },
+  ],
+
+  Drinks: [
+    { item: "Tea", price: 10 },
+    { item: "Coffee", price: 15 },
+    { item: "Lemon tea", price: 15 },
+    { item: "Water bottle", price: "10/20" },
+    { item: "Buttermilk", price: 20 },
+    { item: "Lassi", price: 25 },
+    { item: "Curd", price: 20 },
+    { item: "Fresh lemon soda", price: 20 },
+  ],
+
+  ParathaRoti: [
+    { item: "Chapati", price: 10 },
+    { item: "Plain paratha", price: 15 },
+    { item: "Aloo paratha", price: 40 },
+    { item: "Mix paratha", price: 40 },
+    { item: "Paneer paratha", price: 50 },
+  ],
+
+  RiceAndBiryani: [
+    { item: "Plain rice", price: 50 },
+    { item: "Jeera rice", price: 60 },
+    { item: "Dal khichdi", price: 90 },
+    { item: "Veg biryani", price: 120 },
+    { item: "Chicken biryani (Half)", price: 90 },
+    { item: "Chicken biryani (Full)", price: 140 },
+    { item: "Egg biryani", price: 130 },
+    { item: "Veg fried rice", price: 140 },
+    { item: "Chicken fried rice", price: 140 },
+    { item: "Egg fried rice", price: 110 },
+  ],
+
+  VegMainCourse: [
+    { item: "Baingan masala", price: 80 },
+    { item: "Baingan bharta", price: 75 },
+    { item: "Besan", price: 70 },
+    { item: "Bhendi fry", price: 90 },
+    { item: "Chana masala", price: 120 },
+    { item: "Chole masala", price: 130 },
+    { item: "Aloo jeera", price: 90 },
+    { item: "Aloo gobi", price: 110 },
+    { item: "Paneer masala", price: 140 },
+    { item: "Mutter paneer", price: 150 },
+    { item: "Shev bhaji", price: 120 },
+    { item: "Soyabin masala", price: 110 },
+    { item: "Dal fry", price: 90 },
+    { item: "Dal tadka", price: 100 },
+  ],
+
+  NonVegMainCourse: [
+    { item: "Chicken sukka", price: 130 },
+    { item: "Chicken masala", price: 120 },
+    { item: "Chicken curry", price: 120 },
+    { item: "Egg masala", price: 100 },
+    { item: "Egg curry", price: 110 },
+    { item: "Egg bhurji", price: 60 },
+  ],
+};
+
+export default menu;

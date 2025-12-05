@@ -39,12 +39,11 @@ export default function Body() {
         <div className="container hero-inner">
           <div className="hero-text">
             <h1 className="hero-title">
-              Welcome to Morya Food Point — Your New Favourite Place to Eat and
-              Stay
+              Welcome to Morya Food Point — Authentic Indian Restaurant & Takeaway
             </h1>
             <p className="hero-sub">
-              Relax in clean, cozy rooms and enjoy fresh, tasty Indian food with
-              friendly service.
+              Savour freshly prepared homestyle Indian dishes — dine-in, takeaway,
+              or catering for events. Warm hospitality and honest prices.
             </p>
             <div className="hero-actions">
               <a className="btn primary" href="#menu">
@@ -62,7 +61,7 @@ export default function Body() {
           <div className="hero-media">
             <img
               src={diningImage}
-              alt="Dining and rooms at Morya Food Point"
+              alt="Dining at Morya Food Point"
               className="hero-image"
             />
           </div>
@@ -70,44 +69,34 @@ export default function Body() {
       </section>
 
       <section id="features" className="features">
-        <div className="container">
-          <h2 className="section-title">Our Features</h2>
+          <div className="container">
+          <h2 className="section-title">Our Services</h2>
           <p className="section-sub">
-            Simple comforts and honest service for every guest.
+            Delicious meals and convenient services — tailored for daily diners, students, and events.
           </p>
           <div className="cards">
             <article className="card">
-              <div className="icon" aria-hidden="true">
-                🛏️
-              </div>
-              <h3>Clean and Cozy Rooms</h3>
-              <p>Rooms are neat and quiet. Sleep well after a busy day.</p>
+              <div className="icon" aria-hidden="true">🍳</div>
+              <h3>All-Day Meals & Specials</h3>
+              <p>Breakfast, lunch and dinner available daily — plus special Sunday menus to try each week.</p>
             </article>
 
             <article className="card">
-              <div className="icon" aria-hidden="true">
-                🍛
-              </div>
-              <h3>Fresh and Tasty Indian Food</h3>
-              <p>We cook simple, real flavours using fresh ingredients.</p>
+              <div className="icon" aria-hidden="true">📦</div>
+              <h3>Parcel & Delivery</h3>
+              <p>Parcel services and takeaway available — delivery parcels are free up to 5km.</p>
             </article>
 
             <article className="card">
-              <div className="icon" aria-hidden="true">
-                👪
-              </div>
-              <h3>Family-Friendly Space</h3>
-              <p>
-                Tables and rooms that are safe and comfortable for all ages.
-              </p>
+              <div className="icon" aria-hidden="true">🍱</div>
+              <h3>Monthly Mess & Tiffin Plans</h3>
+              <p>Subscribe to monthly mess plans or daily tiffin service for convenient homestyle meals.</p>
             </article>
 
             <article className="card">
-              <div className="icon" aria-hidden="true">
-                🚗
-              </div>
-              <h3>Easy Parking & Great Location</h3>
-              <p>We are near the main road with simple parking for guests.</p>
+              <div className="icon" aria-hidden="true">🎓</div>
+              <h3>Dine-In & Student Benefits</h3>
+              <p>Cozy dine-in experience with special student discounts to keep meals affordable.</p>
             </article>
           </div>
         </div>
@@ -138,7 +127,7 @@ export default function Body() {
 
             <blockquote className="test-card">
               <p>
-                The rooms are clean and the location is easy to find. Good stay.
+                The food is delicious and the location is easy to find. Great experience.
               </p>
               <footer>— Priya Nair, Local guest</footer>
             </blockquote>
@@ -163,7 +152,7 @@ export default function Body() {
           <h2 className="section-title">Find Us</h2>
           <p className="section-sub">
             We are easy to find and near the main road. Come visit us for food
-            and stay.
+            and events.
           </p>
           <div className="map-wrap">
             <iframe

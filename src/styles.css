@@ -28,6 +28,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Background logo centered on the whole site */
+/* Place the logo behind the app content and keep it non-interactive */
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("./assets/logobg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 40vmin; /* scales with viewport */
+  opacity: 0.09; /* low opacity */
+  pointer-events: none;
+  z-index: 0;
+  filter: grayscale(100%) contrast(85%);
+}
 .container {
   max-width: 1100px;
   margin: 0 auto;

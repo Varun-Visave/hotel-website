@@ -93,7 +93,7 @@ export default function Body() {
               <a className="btn primary" href="#menu">{t('cta.viewMenu')}</a>
               <a
                 className="btn ghost"
-                href="tel:+919876543210"
+                href="tel:+919370223442"
                 aria-label={t('cta.callNow') + ' +91 98765 43210'}
               >
                 {t('cta.callNow')}
